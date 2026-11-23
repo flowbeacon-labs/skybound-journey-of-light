@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#96cadb" />
+  <meta name="description" content="Skybound: Journey of Light — an original 3D browser adventure." />
+  <title>Skybound — Journey of Light | Phase 1</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+  {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <main id="app">
+    <canvas id="world" aria-label="3D floating island adventure"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header id="hud">
+      <div class="brand"><span class="brand-icon">✦</span><div><strong>SKYBOUND</strong><small>JOURNEY OF LIGHT</small></div></div>
+      <div class="hud-chips"><div class="chip" title="Collected light"><span>✧</span><strong id="collected">0 / 12</strong></div><div class="chip" title="Flight energy"><span>✈</span><div class="energy-track"><div id="energy-fill"></div></div></div></div>
+      <button id="sound" class="top-btn" aria-label="Toggle sound">♪</button>
+      <button id="help" class="top-btn" aria-label="Show controls">?</button>
+    </header>
+    <section id="mission"><span class="mission-dot"></span><span id="mission-text">Gather all 12 lights hidden around the island.</span></section>
+    <div id="toast" aria-live="polite"></div>
+    <div id="controls" aria-label="Touch game controls">
+      <div id="joystick" aria-label="Movement joystick"><div class="stick-ring"><div id="stick-knob"></div></div><span>MOVE</span></div>
+      <div class="right-controls">
+        <button id="jump-btn" class="action action-jump" aria-label="Jump">JUMP</button>
+        <button id="fly-btn" class="action action-fly" aria-label="Fly or rise">FLY <span>↑</span></button>
+      </div>
+    </div>
+    <div class="camera-hint">DRAG THE SKY TO LOOK AROUND</div>
+    <div id="overlay" class="overlay">
+      <div class="dialog">
+        <div class="emblem">✦</div>
+        <p class="eyebrow">A NEW ADVENTURE BEGINS</p>
+        <h1>Skybound<br/><em>Journey of Light</em></h1>
+        <p id="dialog-text">A forgotten island floats above the clouds. Walk among its ancient trees, take flight, and find twelve lost sparks of light.</p>
+        <div class="instruction-grid">
+          <div><strong>Desktop</strong><span>WASD / Arrows · Move</span><span>Space · Jump</span><span>Hold F · Fly / rise</span><span>Mouse drag · Camera</span></div>
+          <div><strong>Mobile</strong><span>Left joystick · Move</span><span>JUMP · Hop</span><span>Hold FLY · Take off</span><span>Drag scene · Camera</span></div>
+        </div>
+        <button id="start-btn">BEGIN JOURNEY <span>➜</span></button>
+        <p class="fine-print">Original 3D prototype · Progress saves on this device</p>
+      </div>
+    </div>
+    <div id="error" hidden><h2>Unable to start 3D view</h2><p id="error-message"></p><p>Open through a local web server or GitHub Pages, with an internet connection to load Three.js.</p></div>
+  </main>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
